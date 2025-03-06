@@ -8,3 +8,11 @@ def test_returnSignal(controller):
     )
     controller._view.display.keyPressEvent(event)
     assert controller._view.displayText() == "3"
+
+def test_evaluate(controller):
+    assert controller._evaluate("1+1") == "2"
+
+def test_calculateResult(controller):
+    controller._view.setDisplayText("1+1")
+    controller._calculateResult()
+    assert controller._view.displayText() == "2"
